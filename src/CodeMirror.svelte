@@ -1,7 +1,4 @@
 <script>
-  //codemirror is avaliable from script in public/index.html, so the following import has been commented out
-  //import codemirror from 'codemirror';
-
   import { onMount } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
 
@@ -17,14 +14,7 @@
         lineNumbers: true,
         lineWrapping: true
       });
-      /*
-      editor.on ("change", (cm, co) => {
-        code=cm.getValue();
-      });
-      */
 		editor.on('change', instance => {
-      //const value = instance.getValue();
-      //dispatch('change', { value });
       code = instance.getValue();
       dispatch('change', code);
 		});

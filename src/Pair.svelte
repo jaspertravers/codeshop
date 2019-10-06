@@ -9,8 +9,12 @@
   let initial = `${sketch}`;
 
   function update (value) {
-    sketch = (new Function ("return " + value.detail))();
+    if (typeof sketch === "function") {
+      sketch = (new Function ("return " + value.detail))();
+      console.log ("typeof", typeof sketch);
+    }
     //sketch = value.detail;
+
   }
 </script>
 <style>
