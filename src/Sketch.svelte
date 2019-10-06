@@ -7,7 +7,7 @@
   let frame;
   let myp5;
   let isMounted = false;
-  
+
   $: if (isMounted && sketch) {
     frame.innerHTML="";
     myp5 = new p5(sketch, frame);

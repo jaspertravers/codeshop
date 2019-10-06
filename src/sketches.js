@@ -17,4 +17,24 @@ const s1 = function ( p ) {
   };
 };
 
+const s2 = function ( p ) {
+
+  let x = 0;
+  let y = 100;
+
+  p.setup = () => {
+    p.createCanvas(200, 200);
+    p.background(127);
+    p.noLoop();
+  };
+
+  p.draw = () => {
+    p.background(0);
+    p.fill(255, 127, 0);
+    p.rect(x,y,50,50);
+  };
+};
+
 exports.s1 = s1;
+exports.s2 = s2;
+

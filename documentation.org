@@ -1,0 +1,71 @@
+#+TITLE: CodeShop Documentation
+* Table :TOC:
+- [[#files][Files]]
+  - [[#links][Links]]
+  - [[#appsvelte][App.svelte]]
+  - [[#pairsvelte][Pair.svelte]]
+  - [[#codemirrorsvelte][CodeMirror.svelte]]
+  - [[#sketchsvelte][Sketch.svelte]]
+- [[#development][Development]]
+
+* Files
+** Links
+file:src/App.svelte
+file:src/CodeMirror.svelte
+file:src/main.js
+file:src/Pair.svelte
+file:src/Sketch.svelte
+
+- main.js
+  - App.svelte
+    - Pair.svelte
+      - CodeMirror.svelte
+      - Sketch.svelte
+
+** App.svelte
+- Imports:
+  - =svelte= components {=onMount=}
+  - =Pair.svelte=
+- Creates:
+  - =frame=
+  - =sketch=
+  - =name=
+- Manifests:
+  - Two =Pair= and passes them =sketch=
+
+** Pair.svelte
+- Description:
+- Imports:
+  - =svelte= components {=onMount=}
+  - =Sketch.svelte=
+  - =CodeMirror.svelte=
+- Creates:
+  - =frame=
+  - =export sketch=
+  - =initial=
+  - =function update=
+- Manifests:
+
+** CodeMirror.svelte
+- Description:
+  Creates a =CodeMirror= editor which dispatches its contents to =Pair= on every change.
+  =codemirror= is available from a script in =public/index.html= as a sort of hack around the fact that I can't figure out how to import it here. I wanted to write the line ~import codemirror from 'codemirror';~ but that doesn't work the way I expected it to.
+- Imports:
+  - =svelte= components {=onMount=, =createEventDispatcher=}
+- Creates:
+  - =editor=
+  - =code=
+  - =frame=
+  - =dispatch=
+  - =function onMount=
+- Manifests:
+  - =textarea=
+    ~bind:value={code}~
+    ~bind:this={editor}~
+
+** Sketch.svelte
+
+* Development
+- Instead of dispatching new sketches =on change= we probably want a Play/Pause button style thing. Probably just a play button at first
+- codemirror is not setup very well at all
+
