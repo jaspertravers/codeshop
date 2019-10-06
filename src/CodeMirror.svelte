@@ -6,7 +6,7 @@
   export let code;
 
   let frame;
-  let play = false;
+  let playtoggle = false;
 
 	const dispatch = createEventDispatcher();
 
@@ -18,14 +18,14 @@
       });
 		editor.on('change', instance => {
       code = instance.getValue();
-      if (play) {
+      if (playtoggle) {
         dispatch('change', code);
       }
 		});
   });
 
   function handlePlay () {
-    play = !play;
+    playtoggle = !playtoggle;
     dispatch('change', code);
   }
 </script>
@@ -33,7 +33,12 @@
 <div class="code" bind:this={frame}>
   <textarea bind:value="{code}" bind:this={editor}></textarea>
   <button on:click={handlePlay}>
-    {play ? "play" : "pause"}
+    {#if playtoggle}
+      <strong>play</strong>/pause
+    {/if}
+    {#if !playtoggle}
+      play/<strong>pause</strong>
+    {/if}
   </button>
 </div>
 
