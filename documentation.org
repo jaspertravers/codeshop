@@ -7,6 +7,8 @@
   - [[#codemirrorsvelte][CodeMirror.svelte]]
   - [[#sketchsvelte][Sketch.svelte]]
 - [[#development][Development]]
+  - [[#first][First]]
+  - [[#later][Later]]
 
 * Files
 ** Links
@@ -27,7 +29,6 @@ file:src/Sketch.svelte
   - =svelte= components {=onMount=}
   - =Pair.svelte=
 - Creates:
-  - =frame=
   - =sketch=
   - =name=
 - Manifests:
@@ -40,8 +41,9 @@ file:src/Sketch.svelte
   - =Sketch.svelte=
   - =CodeMirror.svelte=
 - Creates:
-  - =frame=
   - =export sketch=
+    - sketch function imported from a plain js file
+    - that function is wrapped in another function because p5js accepts "wrapped" sketch functions
   - =initial=
   - =function update=
 - Manifests:
@@ -66,6 +68,18 @@ file:src/Sketch.svelte
 ** Sketch.svelte
 
 * Development
-- Instead of dispatching new sketches =on change= we probably want a Play/Pause button style thing. Probably just a play button at first
-- codemirror is not setup very well at all
+- [x] Instead of dispatching new sketches =on change= we probably want a Play/Pause button style thing. Probably just a play button at first
+- [ ] codemirror is not setup very well at all
+
+** [#A] First
+- Internal representation and passing of code
+- CM highlighting, scrolling?
+- CM saving
+** [#C] Later
+- code transformation/formatting and passing between CM \rarr S
+- Code sharing/global namespace CM_i \rarr P \rarr CM_2
+- How does repl.it solve the "halting problem"?
+- p5 instance mode?
+- Drag and Drop wm
+
 

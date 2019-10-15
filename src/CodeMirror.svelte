@@ -13,6 +13,8 @@
   onMount(() => {
       editor = CodeMirror.fromTextArea(editor, {
         mode: "javascript",
+        indentWithTabs: false,
+        tabSize: 2,
         lineNumbers: true,
         lineWrapping: true
       });
