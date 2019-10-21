@@ -10,7 +10,6 @@
   function update (value) {
     if (typeof sketch === "function") {
       sketch = (new Function ("return " + value.detail))();
-      console.log ("typeof", typeof sketch);
     }
     //sketch = value.detail;
 

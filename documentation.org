@@ -1,4 +1,4 @@
-#+TITLE: CodeShop Documentation
+#+TITLE: codeshop Documentation
 * Table :TOC:
 - [[#files][Files]]
   - [[#links][Links]]
@@ -9,6 +9,7 @@
 - [[#development][Development]]
   - [[#first][First]]
   - [[#later][Later]]
+  - [[#wed-sesh][Wed Sesh]]
 
 * Files
 ** Links
@@ -70,16 +71,21 @@ file:src/Sketch.svelte
 * Development
 - [x] Instead of dispatching new sketches =on change= we probably want a Play/Pause button style thing. Probably just a play button at first
 - [ ] codemirror is not setup very well at all
-
 ** [#A] First
 - Internal representation and passing of code
 - CM highlighting, scrolling?
 - CM saving
 ** [#C] Later
 - code transformation/formatting and passing between CM \rarr S
+  - Maybe I should be using =json=
 - Code sharing/global namespace CM_i \rarr P \rarr CM_2
 - How does repl.it solve the "halting problem"?
 - p5 instance mode?
 - Drag and Drop wm
+
+** Wed Sesh
+- add linspace to stdlib
+- build std lib
+- creat new Pair component for stdlib functions
 
 

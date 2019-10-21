@@ -24,6 +24,4 @@
   })
 </script>
 <div class="sketch" bind:this={frame}>
-  <p>{typeof sketch}</p>
-  <p>{sketch}</p>
 </div>

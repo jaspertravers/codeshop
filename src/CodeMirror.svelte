@@ -28,7 +28,9 @@
 
   function handlePlay () {
     playtoggle = !playtoggle;
-    dispatch('change', code);
+    if (playtoggle) {
+      dispatch('change', code);
+    }
   }
 </script>
 
