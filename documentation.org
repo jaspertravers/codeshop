@@ -1,5 +1,7 @@
 #+TITLE: codeshop Documentation
 * Table :TOC:
+- [[#structure][Structure]]
+  - [[#components][Components]]
 - [[#files][Files]]
   - [[#links][Links]]
   - [[#appsvelte][App.svelte]]
@@ -10,6 +12,26 @@
   - [[#first][First]]
   - [[#later][Later]]
   - [[#wed-sesh][Wed Sesh]]
+
+* Structure
+** Components
+| Files             |   |
+|-------------------+---|
+| main.js           |   |
+| App.svelte        |   |
+| Pair.svelte       |   |
+| CodeMirror.svelte |   |
+| Sketch.svelte     |   |
+| sketches.js       |   |
+
+| Variables | reason               |
+|-----------+----------------------|
+| svelte    | import from 'svelte' |
+|           |                      |
+
+
+Observable must thread their function boxes
+
 
 * Files
 ** Links
@@ -33,7 +55,7 @@ file:src/Sketch.svelte
   - =sketch=
   - =name=
 - Manifests:
-  - Two =Pair= and passes them =sketch=
+  - Some =Pair= and passes them =sketch=
 
 ** Pair.svelte
 - Description:
@@ -77,15 +99,15 @@ file:src/Sketch.svelte
 - CM saving
 ** [#C] Later
 - code transformation/formatting and passing between CM \rarr S
-  - Maybe I should be using =json=
+  - Maybe I should be using =json= ooh or =edn=
 - Code sharing/global namespace CM_i \rarr P \rarr CM_2
 - How does repl.it solve the "halting problem"?
 - p5 instance mode?
 - Drag and Drop wm
-
 ** Wed Sesh
 - add linspace to stdlib
 - build std lib
 - creat new Pair component for stdlib functions
+
 
 
