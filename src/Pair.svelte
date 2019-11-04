@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import * as acorn from 'acorn';
+
 
   import Sketch from './Sketch.svelte';
   import CodeMirror from './CodeMirror.svelte';
@@ -7,11 +9,15 @@
   export let sketch;
   let initial = `${sketch}`;
 
-  function update (value) {
-    if (typeof sketch === "function") {
-      sketch = (new Function ("return " + value.detail))();
+  function update ({detail: sourceCode}) {
+    try {
+      acorn.parse(sourceCode);
+      // sketch is a function that returns a function that embodies a p5 sketch.
+    } catch (e) {
+      console.error(e);
+      return;
     }
-    //sketch = value.detail;
+    sketch = (new Function ("return " + sourceCode))();
 
   }
 </script>

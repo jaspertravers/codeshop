@@ -1,5 +1,5 @@
 // sketch 1
-const s1 = function ( p ) {
+const s1 = ( p ) => {
 
   let x = 100;
   let y = 100;
@@ -17,7 +17,7 @@ const s1 = function ( p ) {
   };
 };
 
-const s2 = function ( p ) {
+const s2 = ( p ) => {
 
   let x = 0;
   let y = 100;
@@ -35,7 +35,7 @@ const s2 = function ( p ) {
   };
 };
 
-const s3 = function ( p ) {
+const s3 = function s3( p ) {
 
   let x = 25;
   let y = 25;
