@@ -10,7 +10,11 @@
 
   $: if (isMounted && sketch) {
     frame.innerHTML="";
-    myp5 = new p5(sketch, frame);
+    try {
+      myp5 = new p5(sketch, frame);
+    } catch(e) {
+      
+    }
   }
 
   onMount(() => {
