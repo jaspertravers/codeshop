@@ -2,6 +2,7 @@
 * Table :TOC:
 - [[#structure][Structure]]
   - [[#components][Components]]
+  - [[#functions-in-javascript][Functions in javascript]]
 - [[#files][Files]]
   - [[#links][Links]]
   - [[#appsvelte][App.svelte]]
@@ -31,7 +32,32 @@
 
 
 Observable must thread their function boxes
+** Functions in javascript
+#+begin_src js
+args = ['a', 'b']
+body = 'return a + b'
+sum = new Function (...args, body)
+#+end_src
 
+I want to be able to write into the editor:
+#+begin_src js
+  // get n numbers evenly distributed between (mi, ma).
+  // includes the end values.
+  function linspace (n, mi, ma) {
+    let res = [];
+    const s = (ma - mi) / (n-1);
+    let y = mi;
+    for (let i = 0; i < n; i++){
+        res.push(y);
+        y += s;
+    }
+    return res;
+  }
+return linspace(9,20,30)
+#+end_src
+
+#+RESULTS:
+| 20 | 21.11111111111111 | 22.22222222222222 | 23.333333333333332 | 24.444444444444443 | 25.555555555555554 | 26.666666666666664 | 27.777777777777775 | 28.888888888888886 | 29.999999999999996 |
 
 * Files
 ** Links
