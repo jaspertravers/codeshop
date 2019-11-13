@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import * as acorn from 'acorn';
 
-
   import Sketch from './Sketch.svelte';
   import CodeMirror from './CodeMirror.svelte';
 
@@ -22,12 +21,12 @@
   }
 </script>
 <style>
-  .pair {
+  .group {
     display: flex;
     flex-flow: row wrap;
   }
 </style>
-<div class="pair">
+<div class="group">
   <CodeMirror code={initial} on:change={update}/>
   <Sketch sketch={sketch} />
 </div>
