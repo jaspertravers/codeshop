@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import * as acorn from 'acorn';
 
-  import { runtime } from '../../stores/runtime';
+  import { runtime } from '../../stores/runTime';
 
   import Canvas from './Canvas.svelte';
   import CodeMirror from '../CodeMirror.svelte';
@@ -44,6 +44,8 @@
   }
 </style>
 <div class="pair">
-  <CodeMirror code={sketch.toSource()} on:change={update}/>
-  <Canvas sketch={sketch} />
+  {#if sketch && sketch.toSource}
+    <CodeMirror code={sketch.toSource()} on:change={update}/>
+    <Canvas sketch={sketch} />
+  {/if}
 </div>
