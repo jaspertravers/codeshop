@@ -3,11 +3,11 @@
   import Group from './Group.svelte';
   import sketches from './sketches.js';
 
-	let name = 'you';
+	let name = 'codeshop';
 </script>
 
 <div>
-  <h1>Hey {name}</h1>
+  <h1>{name}</h1>
   <div>
     <Group sketch="{sketches.s1}"/>
     <Group sketch="{sketches.s2}"/>

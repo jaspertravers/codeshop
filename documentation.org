@@ -6,8 +6,8 @@
 - [[#development][Development]]
   - [[#first][First]]
   - [[#later][Later]]
-  - [[#wed-sesh][Wed Sesh]]
   - [[#notes][Notes]]
+    - [[#related-info][Related Info]]
 
 * Structure
 ** Components
@@ -70,10 +70,6 @@ and be able to use the damn thing.
 - How does repl.it solve the "halting problem"?
 - p5 instance mode?
 - Drag and Drop wm
-** Wed Sesh
-- add linspace to stdlib
-- build std lib
-- creat new Pair component for stdlib functions
 ** Notes
 - Observable must thread their function boxes
 - How does repl.it work?
@@ -95,3 +91,16 @@ function wor(fun, mes, com) {
    wor.onmessage = com;
 }
 #+end_src
+
+*** Related Info
+| Projects    | Technologies   |
+|-------------+----------------|
+| Observable  | eval()         |
+| Ronin       | new Function() |
+| Jupyter     |                |
+| jsFiddle    | web workers    |
+| Codepen     | localStorage   |
+| pythontutor |                |
+|             |                |
+
+
