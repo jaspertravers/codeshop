@@ -3,6 +3,8 @@
 - [[#structure][Structure]]
   - [[#components][Components]]
   - [[#functions-in-javascript][Functions in javascript]]
+  - [[#library-and-closure][Library and Closure]]
+  - [[#inputs-sliders][Inputs (Sliders)]]
 - [[#files][Files]]
   - [[#links][Links]]
   - [[#appsvelte][App.svelte]]
@@ -10,9 +12,7 @@
   - [[#codemirrorsvelte][CodeMirror.svelte]]
   - [[#sketchsvelte][Sketch.svelte]]
 - [[#development][Development]]
-  - [[#first][First]]
-  - [[#later][Later]]
-  - [[#wed-sesh][Wed Sesh]]
+- [[#related][related]]
 
 * Structure
 ** Components
@@ -57,22 +57,54 @@ return linspace(9,20,30)
 #+end_src
 
 #+RESULTS:
-| 20 | 21.11111111111111 | 22.22222222222222 | 23.333333333333332 | 24.444444444444443 | 25.555555555555554 | 26.666666666666664 | 27.777777777777775 | 28.888888888888886 | 29.999999999999996 |
+| 20 | 21.25 | 22.5 | 23.75 | 25 | 26.25 | 27.5 | 28.75 | 30 |
 
+** Library and Closure
+#+begin_src js
+const library = Object.keys($runtime).reduce((acc, fName)  => {
+  const functionObj = (new Function(`return ${$runtime[fName]}`))();
+  acc[fName] = functionObj;
+  return acc;
+}, {});
+
+const closure = new Function (
+  `return function(lib) {
+    return ${sourceCode}
+  }`
+);
+
+sketch = closure()(library);
+#+end_src
+
+running ~s1~ and ~linspace~
+~library~ becomes ~{s1: f, linspace: f}~
+
+~closure~  becomes, literally:
+#+begin_src js
+(function anonymous() {
+  return function(lib) {
+    return function linspace (n, mi, ma) {...}
+  }
+})
+#+end_src
+
+so finally, the "driver"
+#+begin_src js
+sketch = closure()(library);
+#+end_src
+passes ~library~ which is an object whose keys are other functions. In this way, any code may access other functions embeded in the ~lib~ object by ~lib.function()~
+
+** Inputs (Sliders)
+Parameters passed to the sketch element, instead of 
+#+begin_src js
+(p) => {...}
+#+end_src
+having
+#+begin_src js
+(p, [...sliders]) => {...}
+#+end_src
 * Files
 ** Links
-file:src/App.svelte
-file:src/CodeMirror.svelte
-file:src/main.js
-file:src/Pair.svelte
-file:src/Sketch.svelte
-
-- main.js
-  - App.svelte
-    - Pair.svelte
-      - CodeMirror.svelte
-      - Sketch.svelte
-
 ** App.svelte
 - Imports:
   - =svelte= components {=onMount=}
@@ -119,21 +151,24 @@ file:src/Sketch.svelte
 * Development
 - [x] Instead of dispatching new sketches =on change= we probably want a Play/Pause button style thing. Probably just a play button at first
 - [ ] codemirror is not setup very well at all
-** [#A] First
 - Internal representation and passing of code
 - CM highlighting, scrolling?
 - CM saving
-** [#C] Later
 - code transformation/formatting and passing between CM \rarr S
   - Maybe I should be using =json= ooh or =edn=
 - Code sharing/global namespace CM_i \rarr P \rarr CM_2
 - How does repl.it solve the "halting problem"?
 - p5 instance mode?
 - Drag and Drop wm
-** Wed Sesh
 - add linspace to stdlib
 - build std lib
 - creat new Pair component for stdlib functions
+
+* related
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+https://simon.html5.org/dump/html5-canvas-cheat-sheet.html
+
 
 
 
