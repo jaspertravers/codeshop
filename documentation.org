@@ -1,18 +1,4 @@
 #+TITLE: codeshop Documentation
-* Table :TOC:
-- [[#structure][Structure]]
-  - [[#components][Components]]
-  - [[#functions-in-javascript][Functions in javascript]]
-  - [[#library-and-closure][Library and Closure]]
-  - [[#inputs-sliders][Inputs (Sliders)]]
-- [[#files][Files]]
-  - [[#links][Links]]
-  - [[#appsvelte][App.svelte]]
-  - [[#pairsvelte][Pair.svelte]]
-  - [[#codemirrorsvelte][CodeMirror.svelte]]
-  - [[#sketchsvelte][Sketch.svelte]]
-- [[#development][Development]]
-- [[#related][related]]
 
 * Structure
 ** Components
@@ -20,7 +6,7 @@
 |-------------------+---|
 | main.js           |   |
 | App.svelte        |   |
-| Pair.svelte       |   |
+| Group.svelte      |   |
 | CodeMirror.svelte |   |
 | Sketch.svelte     |   |
 | sketches.js       |   |
@@ -30,34 +16,33 @@
 | svelte    | import from 'svelte' |
 |           |                      |
 
-
-Observable must thread their function boxes
 ** Functions in javascript
 #+begin_src js
 args = ['a', 'b']
 body = 'return a + b'
 sum = new Function (...args, body)
-#+end_src
-
-I want to be able to write into the editor:
-#+begin_src js
-  // get n numbers evenly distributed between (mi, ma).
-  // includes the end values.
-  function linspace (n, mi, ma) {
-    let res = [];
-    const s = (ma - mi) / (n-1);
-    let y = mi;
-    for (let i = 0; i < n; i++){
-        res.push(y);
-        y += s;
-    }
-    return res;
-  }
-return linspace(9,20,30)
+return sum (2,3)
 #+end_src
 
 #+RESULTS:
-| 20 | 21.25 | 22.5 | 23.75 | 25 | 26.25 | 27.5 | 28.75 | 30 |
+: 5
+
+I want to be able to write into the editor:
+#+begin_src js
+// get n numbers evenly distributed between (mi, ma).
+// includes the end values.
+function linspace (n, mi, ma) {
+  let res = [];
+  const s = (ma - mi) / (n-1);
+  let y = mi;
+  for (let i = 0; i < n; i++){
+      res.push(y);
+      y += s;
+  }
+  return res;
+}
+return linspace(9,0,10)
+#+end_src
 
 ** Library and Closure
 #+begin_src js
@@ -115,48 +100,15 @@ having
 - Manifests:
   - Some =Pair= and passes them =sketch=
 
-** Pair.svelte
-- Description:
-- Imports:
-  - =svelte= components {=onMount=}
-  - =Sketch.svelte=
-  - =CodeMirror.svelte=
-- Creates:
-  - =export sketch=
-    - sketch function imported from a plain js file
-    - that function is wrapped in another function because p5js accepts "wrapped" sketch functions
-  - =initial=
-  - =function update=
-- Manifests:
-
-** CodeMirror.svelte
-- Description:
-  Creates a =CodeMirror= editor which dispatches its contents to =Pair= on every change.
-  =codemirror= is available from a script in =public/index.html= as a sort of hack around the fact that I can't figure out how to import it here. I wanted to write the line ~import codemirror from 'codemirror';~ but that doesn't work the way I expected it to.
-- Imports:
-  - =svelte= components {=onMount=, =createEventDispatcher=}
-- Creates:
-  - =editor=
-  - =code=
-  - =frame=
-  - =dispatch=
-  - =function onMount=
-- Manifests:
-  - =textarea=
-    ~bind:value={code}~
-    ~bind:this={editor}~
-
-** Sketch.svelte
+and be able to use the damn thing.
 
 * Development
-- [x] Instead of dispatching new sketches =on change= we probably want a Play/Pause button style thing. Probably just a play button at first
-- [ ] codemirror is not setup very well at all
 - Internal representation and passing of code
 - CM highlighting, scrolling?
 - CM saving
 - code transformation/formatting and passing between CM \rarr S
-  - Maybe I should be using =json= ooh or =edn=
-- Code sharing/global namespace CM_i \rarr P \rarr CM_2
+  - Maybe I should be using =json= or =edn=
+- Code sharing/global namespace
 - How does repl.it solve the "halting problem"?
 - p5 instance mode?
 - Drag and Drop wm
@@ -170,5 +122,36 @@ https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
 https://simon.html5.org/dump/html5-canvas-cheat-sheet.html
 
 
+=======
+** Notes
+- Observable must thread their function boxes
+- How does repl.it work?
 
+#+begin_src js
+/*
+ * https://stackoverflow.com/a/19655815/9346730
+ * @param fun the function to carry out in the web worker
+ * @param mes the message to send to the web worker
+ * @param com the function to do on completion
+ * creates, dispatches & receives a web worker
+ */
+function wor(fun, mes, com) {
+   var wor = new Worker(URL.createObjectURL(new Blob([
+         'self.onmessage = ' + fun.toString()], {
+         type: 'application/javascript'
+   })));       
+   wor.postMessage(mes);
+   wor.onmessage = com;
+}
+#+end_src
 
+*** Related Info
+| Projects    | Technologies   |
+|-------------+----------------|
+| Observable  | eval()         |
+| Ronin       | new Function() |
+| Jupyter     |                |
+| jsFiddle    | web workers    |
+| Codepen     | localStorage   |
+| pythontutor |                |
+|             |                |

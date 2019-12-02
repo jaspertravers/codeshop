@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import Pair from './Pair.svelte';
+  import Group from './Group.svelte';
   import sketches from './sketches.js';
 
   import {runtime} from './runtime';
