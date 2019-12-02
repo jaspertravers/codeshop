@@ -1,21 +1,6 @@
 #+TITLE: codeshop Documentation
 
-* Structure
-** Components
-| Files             |   |
-|-------------------+---|
-| main.js           |   |
-| App.svelte        |   |
-| Group.svelte      |   |
-| CodeMirror.svelte |   |
-| Sketch.svelte     |   |
-| sketches.js       |   |
-
-| Variables | reason               |
-|-----------+----------------------|
-| svelte    | import from 'svelte' |
-|           |                      |
-
+* Ideas and Explanations
 ** Functions in javascript
 #+begin_src js
 args = ['a', 'b']
@@ -88,20 +73,6 @@ having
 #+begin_src js
 (p, [...sliders]) => {...}
 #+end_src
-* Files
-** Links
-** App.svelte
-- Imports:
-  - =svelte= components {=onMount=}
-  - =Pair.svelte=
-- Creates:
-  - =sketch=
-  - =name=
-- Manifests:
-  - Some =Pair= and passes them =sketch=
-
-and be able to use the damn thing.
-
 * Development
 - Internal representation and passing of code
 - CM highlighting, scrolling?
@@ -121,11 +92,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
 https://simon.html5.org/dump/html5-canvas-cheat-sheet.html
 
-
-=======
-** Notes
-- Observable must thread their function boxes
-- How does repl.it work?
+ https://stackoverflow.com/a/19655815/9346730
 
 #+begin_src js
 /*
@@ -145,13 +112,20 @@ function wor(fun, mes, com) {
 }
 #+end_src
 
-*** Related Info
-| Projects    | Technologies   |
-|-------------+----------------|
-| Observable  | eval()         |
-| Ronin       | new Function() |
-| Jupyter     |                |
-| jsFiddle    | web workers    |
-| Codepen     | localStorage   |
-| pythontutor |                |
-|             |                |
+* Notes
+- Observable must thread their function boxes
+- How does repl.it work?
+
+** Related Services
+- Observable
+- Ronin
+- Jupyter
+- jsFiddle
+- Codepen
+- pythontutor
+
+** Related Technologies
+- eval()
+- new Function()
+- web workers
+- localStorage
