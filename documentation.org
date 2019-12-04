@@ -24,12 +24,12 @@ The local function ~update~ passes an error-checked function object to be render
 function update ({detail: sourceCode}) {
 #+end_src
 
-#+begin_src sh :export
+#+begin_src sh :exports both
 cd src
 ~/scripts/ff update
 #+end_src
 
-#+RESULTS: :export
+#+RESULTS:
 : ./Group.svelte
 
 ** Feature Work
@@ -83,9 +83,9 @@ const closure = new Function (
   `return function(lib) {
     return ${sourceCode}
   }`
-);
+)();
 
-sketch = closure()(library);
+sketch = closure(library);
 #+end_src
 
 running ~s1~ and ~linspace~
@@ -95,14 +95,28 @@ running ~s1~ and ~linspace~
 #+begin_src js
 (function anonymous() {
   return function(lib) {
-    return function linspace (n, mi, ma) {...}
+    return (p) => {
+      //local vars
+      p.setup = () => {...}
+      p.draw = () => {...}
+    }
   }
 })
+#+end_src
+and is then immediately called by the ending ~()~ to unroll the one anonymous function resulting in:
+#+begin_src js
+return function(lib) {
+    return (p) => {
+      //local vars
+      p.setup = () => {...}
+      p.draw = () => {...}
+    }
+}
 #+end_src
 
 so finally, the "driver"
 #+begin_src js
-sketch = closure()(library);
+sketch = closure(library);
 #+end_src
 passes ~library~ which is an object whose keys are other functions. In this way, any code may access other functions embeded in the ~lib~ object by ~lib.function()~
 

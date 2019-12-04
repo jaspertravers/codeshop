@@ -14,11 +14,11 @@
     {/each}
   </div>
   <div>
-    <Pair name="s1" sketch="{sketches.s1}"/>
-    <Pair name="s2" sketch="{sketches.s2}"/>
-    <Pair name="s3" sketch="{sketches.s3}"/>
-    <Pair name="sand" sketch="{sketches.sand}"/>
-    <Pair name="zip" sketch="{sketches.zip}"/>
-    <Pair name="linspace" sketch="{sketches.linspace}"/>
+    <Group name="s1" sketch="{sketches.s1}"/>
+    <Group name="s2" sketch="{sketches.s2}"/>
+    <Group name="s3" sketch="{sketches.s3}"/>
+    <Group name="sand" sketch="{sketches.sand}"/>
+    <Group name="zip" sketch="{sketches.zip}"/>
+    <Group name="linspace" sketch="{sketches.linspace}"/>
   </div>
 </div>
