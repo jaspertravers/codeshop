@@ -7,8 +7,9 @@
   - Maybe I should be using =json= or =edn=
 - How does repl.it solve the "halting problem"?
 - Drag and Drop wm
-- creat new Pair component for stdlib functions
+- creat new Pair component for stdlib functions (what goes on RHS?)
 - CodeMirror should only contain codemirror logic; playbutton should be in a different place
+- ~async~, ~promises~, ~generators~, ~try/catch~
 ** Code Organization
 =CodeMirror.svelte= exports ~code~ and the event dispatcher ~dispatch~ through the line:
 #+begin_src js
@@ -131,30 +132,47 @@ having
 #+end_src
 * Conversations
 Joe Politz asked something about how this would compare to jsFiddle. My answer was that I could imagine this service as a workspace of fiddles. The fundamental idea of this work is to give a ~*-*~ relationship between code and outpus. I'll have to work on this analogy.
+
 I want a high level of granularity in selecting and writing code. (Code is not divided by file, but by function or groups)
 This project currently has a higher level of distinction between blocks of code than even Observable/Jupyter because of the horizontal grouping with output. There is much work to do here, but it allows another "hook" of organization to have horizontal layout over a single scrolling column. 
+
+I thought I wanted this site to be available in itself. Politz asked why and then mentioned "easy things should be easy and hard things should be possible". I don't have a good answer on why, so I should either get one or drop it. Short term I'm dropping it.
+
+---
+
+Observablehq.com has a "Use case" gallery. A section in the gallery is "Software Development" and has "Rapid user interface prototyping"
+
+This is a space I want to compete in, and 2D should beat 1D. More and better interaction hooks than only a slider. Something related to sketch-n-sketch
 * Notes
 - Observable must thread their function boxes
-- How does repl.it work?
+** Prior Art
+*** Putting in All the Stops: Execution Control for JavaScript
+https://jpolitz.github.io
+https://pldi18.sigplan.org/details/pldi-2018-papers/25/Putting-in-All-the-Stops-Execution-Control-for-JavaScript
+https://arxiv.org/pdf/1802.02974.pdf
 ** Related Services
-| Service     | Site                   |
-|-------------+------------------------|
-| Observable  |                        |
-| Ronin       |                        |
-| Jupyter     |                        |
-| jsFiddle    |                        |
-| Codepen     |                        |
-| pythontutor |                        |
-| codesandbox | https://codesandbox.io |
+| Service         | Site                                        |
+|-----------------+---------------------------------------------|
+| Observable      | https://observablehq.com                    |
+| Jupyter         | https://jupyter.org                         |
+| pythontutor     | http://pythontutor.com/                     |
+| Ronin           | https://github.com/hundredrabbits/Ronin     |
+| jsFiddle        | https://jsfiddle.net                        |
+| Codepen         | https://codepen.io                          |
+| codesandbox     | https://codesandbox.io                      |
+| mesh            | http://mesh-spreadsheet.com/                |
+| sketch-n-sketch | http://ravichugh.github.io/sketch-n-sketch/ |
 ** Related Technologies
 - eval()
 - new Function()
 - localStorage
 - canvas
 - web workers
-
+- async
+- generators
+- promises
+- try/catch
 *** Links and code
-  
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
 https://simon.html5.org/dump/html5-canvas-cheat-sheet.html
@@ -178,3 +196,50 @@ function wor(fun, mes, com) {
    wor.onmessage = com;
 }
 #+end_src
+
+** Inspiration
+Including above lists
+|                 |                                                                                            |
+|-----------------+--------------------------------------------------------------------------------------------|
+| Bret Victor     | http://worrydream.com/                                                                     |
+| Dan Amelang     | https://github.com/damelang/nile                                                           |
+| lab             | https://www.inkandswitch.com                                                               |
+| Casey Reas      | http://reas.com/compendium_text/                                                           |
+| Daniel Shiffman | https://natureofcode.com                                                                   |
+|                 |                                                                                            |
+|-----------------+--------------------------------------------------------------------------------------------|
+|                 | http://www.tinlizzie.org/ometa/                                                            |
+|                 | https://webstrates.net                                                                     |
+|                 | https://www.desmos.com/calculator                                                          |
+|                 | https://hazel.org                                                                          |
+|                 | http://shaunlebron.github.io/parinfer/                                                     |
+| Amit Patel      | https://www.redblobgames.com                                                               |
+| Nicky Case      | https://explorabl.es                                                                       |
+|                 | https://jackschaedler.github.io/                                                           |
+|-----------------+--------------------------------------------------------------------------------------------|
+| General         |                                                                                            |
+|                 | https://orgmode.org                                                                        |
+|                 | http://spacemacs.org/                                                                      |
+|                 | https://lively-next.org                                                                    |
+|                 | https://en.wikipedia.org/wiki/Smalltalk                                                    |
+|                 | https://racket-lang.org                                                                    |
+|                 | https://sonic-pi.net                                                                       |
+|                 | https://rstudio.com/products/rstudio/                                                      |
+|-----------------+--------------------------------------------------------------------------------------------|
+| Books           |                                                                                            |
+|                 | Edward Tufte                                                                               |
+|                 | Form Function & Design by Paul Jacques Grillo                                              |
+|                 | The Grammar of Graphics                                                                    |
+|                 | http://shapetalkingaboutseeinganddoing.org/Shape.pdf                                       |
+|                 | http://www.thefunctionalart.com                                                            |
+|-----------------+--------------------------------------------------------------------------------------------|
+|                 | https://andymatuschak.org                                                                  |
+|                 | http://polytrope.com/                                                                      |
+|                 | https://hamishtodd1.github.io                                                              |
+|                 | http://joshuahhh.com/                                                                      |
+|                 | https://rsnous.com                                                                         |
+|                 | http://www.jezzamon.com                                                                    |
+|-----------------+--------------------------------------------------------------------------------------------|
+| Papers          |                                                                                            |
+|                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
+|                 |                                                                                            |
