@@ -7,21 +7,16 @@
   import CodeMirror from './CodeMirror.svelte';
 
   export let sketch;
-  export let name = "";
   let initial = `${sketch}`;
 
   function update ({detail: sourceCode}) {
     // Syntactic error handling
-
-    // inject source code into our namespace
     try {
       const AST = acorn.parse(sourceCode);
       console.log(AST);
-      // you can read the AST and initiate UI/UX changes based on what's in the code
       runtime.update(rt => { 
         return Object.assign(rt, {[name]: sourceCode})
       });
-      // sketch is a function that returns a function that embodies a p5 sketch.
     } catch (e) {
       console.error(e);
       return;
@@ -36,26 +31,9 @@
       `return function(lib) {
         return ${sourceCode}
       }`
-    );
+    )();
 
-    sketch = closure()(library);
-  
-
-    /*
-    function (p) {
-      function linspace(...) {
-
-      }
-      
-      return sketchFunction(p) {
-        setup() {...}
-        draw() {...}
-      };
-    }()
-
-
-    */
-
+    sketch = closure(library);
   }
 </script>
 <style>
