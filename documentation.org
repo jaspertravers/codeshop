@@ -131,7 +131,7 @@ having
 (p, [...sliders]) => {...}
 #+end_src
 * Conversations
-Joe Politz asked something about how this would compare to jsFiddle. My answer was that I could imagine this service as a workspace of fiddles. The fundamental idea of this work is to give a ~*-*~ relationship between code and outpus. I'll have to work on this analogy.
+Joe Politz asked something about how this would compare to jsFiddle. My answer was that I could imagine this service as a workspace of fiddles. The fundamental idea of this work is to give a ~*-*~ relationship between code and outputs. I'll have to work on this analogy.
 
 I want a high level of granularity in selecting and writing code. (Code is not divided by file, but by function or groups)
 This project currently has a higher level of distinction between blocks of code than even Observable/Jupyter because of the horizontal grouping with output. There is much work to do here, but it allows another "hook" of organization to have horizontal layout over a single scrolling column. 
@@ -162,6 +162,7 @@ https://arxiv.org/pdf/1802.02974.pdf
 | codesandbox     | https://codesandbox.io                      |
 | mesh            | http://mesh-spreadsheet.com/                |
 | sketch-n-sketch | http://ravichugh.github.io/sketch-n-sketch/ |
+|                 |                                             |
 ** Related Technologies
 - eval()
 - new Function()
@@ -243,3 +244,5 @@ Including above lists
 | Papers          |                                                                                            |
 |                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
 |                 |                                                                                            |
+
+https://github.com/jonathontoon/manifest
