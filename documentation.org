@@ -3,7 +3,7 @@
 - Internal representation and passing of code
 - CM highlighting, scrolling?
 - CM saving
-- code transformation/formatting and passing between CM \rarr S
+- code transformation/formatting and passing between CM -> S
   - Maybe I should be using =json= or =edn=
 - How does repl.it solve the "halting problem"?
 - Drag and Drop wm
@@ -49,7 +49,7 @@ adding functions at =...= would circumvent the prefix ~lib.~ There are certainly
 args = ['a', 'b']
 body = 'return a + b'
 sum = new Function (...args, body)
-return sum (2,3)
+return sum (2,3) // => 5
 #+end_src
 
 #+RESULTS:
@@ -226,6 +226,9 @@ Including above lists
 |                 | https://racket-lang.org                                                                    |
 |                 | https://sonic-pi.net                                                                       |
 |                 | https://rstudio.com/products/rstudio/                                                      |
+|                 | https://github.com/jonathontoon/manifest                                                   |
+|                 | https://www.desmos.com/calculator                                                          |
+|                 |                                                                                            |
 |-----------------+--------------------------------------------------------------------------------------------|
 | Books           |                                                                                            |
 |                 | Edward Tufte                                                                               |
@@ -244,5 +247,4 @@ Including above lists
 | Papers          |                                                                                            |
 |                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
 |                 |                                                                                            |
-
-https://github.com/jonathontoon/manifest
+|-----------------+--------------------------------------------------------------------------------------------|
