@@ -248,6 +248,7 @@ Including above lists
 | Papers          |                                                                                            |
 |                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
 |                 |                                                                                            |
+<<<<<<< HEAD
 |                 | putting out all the stops                                                                  |
 |                 | Variolite                                                                                  |
 |                 | Juxtapose                                                                                  |
@@ -256,4 +257,6 @@ Including above lists
 |                 |                                                                                            |
 |                 | joe marx siggraph 1997                                                                     |
 |                 |                                                                                            |
+=======
+>>>>>>> 9e40e1272d4727738bf99a2e3de45efab854a9c3
 |-----------------+--------------------------------------------------------------------------------------------|
