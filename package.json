@@ -15,7 +15,8 @@
     "acorn": "^7.1.0",
     "codemirror": "^5.48.2",
     "p5": "^0.9.0",
-    "sirv-cli": "^0.4.4"
+    "sirv-cli": "^0.4.4",
+    "stopify": "^0.5.4-elementaryJS"
   },
   "scripts": {
     "build": "rollup -c",

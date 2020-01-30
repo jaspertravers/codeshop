@@ -162,6 +162,7 @@ https://arxiv.org/pdf/1802.02974.pdf
 | codesandbox     | https://codesandbox.io                      |
 | mesh            | http://mesh-spreadsheet.com/                |
 | sketch-n-sketch | http://ravichugh.github.io/sketch-n-sketch/ |
+| Figma Plugin    |                                             |
 |                 |                                             |
 ** Related Technologies
 - eval()
@@ -246,5 +247,13 @@ Including above lists
 |-----------------+--------------------------------------------------------------------------------------------|
 | Papers          |                                                                                            |
 |                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
+|                 |                                                                                            |
+|                 | putting out all the stops                                                                  |
+|                 | Variolite                                                                                  |
+|                 | Juxtapose                                                                                  |
+|                 | Projection Boxes                                                                           |
+|                 | Dynamic Drawing                                                                            |
+|                 |                                                                                            |
+|                 | joe marx siggraph 1997                                                                     |
 |                 |                                                                                            |
 |-----------------+--------------------------------------------------------------------------------------------|
