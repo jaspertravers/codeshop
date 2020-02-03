@@ -1,5 +1,24 @@
 #+TITLE: codeshop Documentation
 * Development
+
+** Today
+- [x] codemirror
+- [] storage
+- [] stopify
+- [] ui
+
+
+file:src/App.svelte
+file:src/Group.svelte
+file:src/CodeMirror.svelte
+file:src/Sketch.svelte
+
+groups ought to have dynamic names
+
+
+
+** Else
+
 - Internal representation and passing of code
 - CM highlighting, scrolling?
 - CM saving
@@ -248,7 +267,6 @@ Including above lists
 | Papers          |                                                                                            |
 |                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
 |                 |                                                                                            |
-<<<<<<< HEAD
 |                 | putting out all the stops                                                                  |
 |                 | Variolite                                                                                  |
 |                 | Juxtapose                                                                                  |
@@ -257,6 +275,4 @@ Including above lists
 |                 |                                                                                            |
 |                 | joe marx siggraph 1997                                                                     |
 |                 |                                                                                            |
-=======
->>>>>>> 9e40e1272d4727738bf99a2e3de45efab854a9c3
 |-----------------+--------------------------------------------------------------------------------------------|

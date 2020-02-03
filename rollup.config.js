@@ -4,6 +4,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 
+import postcss from 'rollup-plugin-postcss'
+
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
@@ -42,7 +44,10 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+    postcss({
+      plugins: []
+    })
 	],
 	watch: {
 		clearScreen: false

@@ -1,24 +1,18 @@
 <script>
-  import { onMount } from 'svelte';
-  import Group from './Group.svelte';
-  import sketches from './sketches.js';
-
-  import {runtime} from './runtime';
-
+  import Workspace from './Workspace.svelte'
 </script>
 
-<div>
-  <div id="runtime">
-    {#each Object.keys($runtime) as x}
-      <span>{x}</span>
-    {/each}
+<!-- how should this be organized? Seems over the top -->
+
+<div id="app">
+  <div id="root">
+    <h1> codeshop </h1>
+    <div id="runtime">
+    </div>
+    <div id="workspace">
+      <Workspace name ="w0"/>
+    </div>
   </div>
-  <div>
-    <Group name="s1" sketch="{sketches.s1}"/>
-    <Group name="s2" sketch="{sketches.s2}"/>
-    <Group name="s3" sketch="{sketches.s3}"/>
-    <Group name="sand" sketch="{sketches.sand}"/>
-    <Group name="zip" sketch="{sketches.zip}"/>
-    <Group name="linspace" sketch="{sketches.linspace}"/>
+  <div id="footer">
   </div>
 </div>

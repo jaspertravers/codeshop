@@ -1,48 +1,57 @@
 <script>
   import { onMount } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
+
+  import CodeMirror from './codemirror.js'; //this works
 
   let editor;
-  export let code;
-
   let frame;
-  let playtoggle = false;
+  export let code; //code comes into this module
+  const refs = {}
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
+
+  function createEditor () {
+    const cm_opts = {
+      lineNumbers: true,
+      lineWrapping: true,
+      indentWithTabs: true,
+      indentUnit: 2,
+      tabSize: 2,
+      value: '',
+      mode: 'javascript'
+    };
+    editor = CodeMirror.fromTextArea(refs.editor, cm_opts);
+    editor.on('change', instance => {
+      code = instance.getValue();
+      dispatch('change', code); // or { value }
+     });
+  }
 
   onMount(() => {
-      editor = CodeMirror.fromTextArea(editor, {
-        mode: "javascript",
-        indentWithTabs: false,
-        tabSize: 2,
-        lineNumbers: true,
-        lineWrapping: true
-      });
-		editor.on('change', instance => {
-      code = instance.getValue();
-      if (playtoggle) {
-        dispatch('change', code);
-      }
-		});
+    createEditor();
   });
 
-  function handlePlay () {
-    playtoggle = !playtoggle;
-    if (playtoggle) {
-      dispatch('change', code);
-    }
+  //not sure what for: https://github.com/sveltejs/svelte-repl/blob/master/src/CodeMirror.svelte
+  $: if (editor) { 
+    editor.refresh();
+    console.log("hit editor.refresh() $: ");
   }
+
+
 </script>
 
-<div class="code" bind:this={frame}>
-  <textarea bind:value="{code}" bind:this={editor}></textarea>
-  <button on:click={handlePlay}>
-    {#if playtoggle}
-      <strong>play</strong>/pause
-    {/if}
-    {#if !playtoggle}
-      play/<strong>pause</strong>
-    {/if}
-  </button>
-</div>
+<style>
+  .codemirror-container {
+      position: relative;
+      width: 50%;
+      line-height: 1.5;
+  }
+</style>
 
+<div class="codemirror-container" bind:this={frame}>
+  <textarea
+    bind:this={refs.editor}
+    bind:value={code}
+  ></textarea>
+</div>

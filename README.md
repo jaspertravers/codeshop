@@ -1,6 +1,9 @@
 # codeshop
+[Documentation](documentation.org)
 
 A workspace for programming based art.
+
+# Svelte
 
 This was built from the Svelte template for [Svelte](https://svelte.dev) at https://github.com/sveltejs/template.
 
@@ -21,4 +24,3 @@ npm run dev
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
-[Documentation](documentation.org)
