@@ -27,5 +27,5 @@
       }
   })
 </script>
-<div class="sketch" bind:this={frame}>
+  <div class="sketch" bind:this={frame}>
 </div>

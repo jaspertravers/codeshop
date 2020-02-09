@@ -1,5 +1,17 @@
-// sketch 1
+// sketch default
+const def = ( p ) => {
+  let x = 100;
+  let y = 100;
 
+  p.setup = () => {
+    p.createCanvas(200, 200);
+    p.noLoop();
+  }
+  p.draw = () => {
+    p.background(127);
+  }
+}
+//  sketch 1
 const s1 = ( p ) => {
   let x = 100;
   let y = 100;
@@ -138,6 +150,7 @@ function linspace (n, mi, ma) {
   return res;
 }
 
+exports.def = def;
 exports.s1 = s1;
 exports.s2 = s2;
 exports.s3 = s3;

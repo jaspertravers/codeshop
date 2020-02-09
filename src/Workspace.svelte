@@ -6,17 +6,15 @@
   import Group from './Group.svelte';
   import sketches from './sketches.js';
 
-  //TODO this was just for testing?
+  //TODO this was just for testing? or for independent 1D editors?
   import CodeMirror from './CodeMirror.svelte';
 
-  let state = [{name:"name", sketch:`x = 5`}];
-  let newState = {name:"name", sketch:`x = 5`};
+  let newState = {name:"name", sketch:sketches.def};
+  let state = [newState];
+  console.log(sketches.def)
 
-  //set context
   function handleButton () {
-      //state.push({name:"name", sketch:`x = 5`})
       state = [...state, newState];
-      console.log(state)
   }
 </script>
 
@@ -33,8 +31,6 @@
       <Group name={element.name} sketch={element.sketch}/>
     {/each}
   {/if}
-
-
 
   <Group name="s1" sketch="{sketches.s1}"/>
   <!-- <Group name="s2" sketch="{sketches.s2}"/> -->
