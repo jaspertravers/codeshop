@@ -63,6 +63,52 @@ const s3 = function s3( p ) {
   };
 };
 
+const s4 = ( p ) => {
+      let x = 100;
+      let y = 100;
+
+      p.setup = () => {
+        p.background(127);
+        p.createCanvas(200, 200);
+      };
+
+      p.draw = () => {
+        p.background(127);
+        p.fill(255, 127, 0);
+        p.rect(x,y,50,50);
+				p.line(p.random(200),
+							 p.random(200),
+							 p.random(200),
+							 p.random(200));
+      };
+    }
+
+const s5 = ( p ) => {
+
+      let x = 0;
+      let y = 100;
+	let i = 0;
+
+      p.setup = () => {
+        p.createCanvas(200, 200);
+        p.background(127);
+      };
+
+      p.draw = () => {
+				i++;
+				i %= 200;
+				if (i%50 == 0) {
+					p.background(127);
+				}
+				p.fill(255, 127, 0);
+        p.rect(x,y,50,50);
+				p.line(p.random(i, i+5),
+							 p.random(5),
+							 p.random(195,200),
+							 p.random(195,200));
+      };
+    }
+
 function sand (x1, y1, x2, y2, n, t, offset) {
   let xs = linspace (n, x1, x2);
   let ys = linspace (n, y1, y2);

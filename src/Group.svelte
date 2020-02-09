@@ -40,6 +40,7 @@
   .group {
     display: flex;
     flex-flow: row wrap;
+    border: dashed red;
   }
 </style>
 <div class="group">
