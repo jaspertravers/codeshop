@@ -3,38 +3,50 @@
   -- -->
 
 <script>
+  import { onMount } from 'svelte';
   import Group from './Group.svelte';
   import sketches from './sketches.js';
-
-  //TODO this was just for testing? or for independent 1D editors?
   import CodeMirror from './CodeMirror.svelte';
 
-  let newState = {name:"name", sketch:sketches.def};
-  let state = [newState];
-  console.log(sketches.def)
+  import { store } from './store.js';
+  store.useLocalStorage(); //gets localstorage session
 
-  function handleButton () {
-      state = [...state, newState];
+  let newState = {name:$store.state.length, sketch: sketches.def};
+
+  console.log("store.state: ", $store.state)
+  // if no localstorage, initiate with default
+  if (!$store.state.length) {
+      store.set({state: [newState]})
   }
+
+  function handleNewButton () {
+      $store.state = [...$store.state, newState];
+  }
+  function handleDeleteButton () {
+      $store.state = $store.state.slice(0, -1);
+  }
+
+  //store into store
+  function restore ({detail: source}) {
+      
+  }
+
+  console.log("store[0]: ", $store.state[0])
 </script>
 
 <style>
-  .workspace {
-      border: dashed purple;
-  }
+
 </style>
 
 <div class="workspace">
 
-  {#if state.length}
-    {#each state as element}
-      <Group name={element.name} sketch={element.sketch}/>
+  {#if $store.state.length}
+    {#each $store.state as element, i}
+      <Group name={i} sketch={element.sketch} on:change={restore}/>
     {/each}
   {/if}
 
-  <Group name="s1" sketch="{sketches.s1}"/>
-  <!-- <Group name="s2" sketch="{sketches.s2}"/> -->
-  <!-- <CodeMirror code="x = 5"/> -->
-  <button id="new" on:click={handleButton}> New Editor </button>
-  <button id="new" on:click={handleButton}> Copy Editor </button>
+  <button id="new" on:click={handleNewButton}> New Editor </button>
+  <button id="copy" on:click={handleNewButton}> Copy Editor </button>
+  <button id="delete" on:click={handleDeleteButton}> Delete Editor </button>
 </div>

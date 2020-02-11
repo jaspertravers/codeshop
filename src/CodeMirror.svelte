@@ -35,7 +35,7 @@
   //not sure what for: https://github.com/sveltejs/svelte-repl/blob/master/src/CodeMirror.svelte
   $: if (editor) { 
     editor.refresh();
-    console.log("hit editor.refresh() $: ");
+    //console.log("hit editor.refresh() $: ");
   }
 
 

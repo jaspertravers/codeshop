@@ -6,14 +6,15 @@
   import Sketch from './Sketch.svelte';
   import CodeMirror from './CodeMirror.svelte';
 
+  export let name;
   export let sketch;
-  let initial = `${sketch}`;
+  let initial = sketch;
+  //let initial = update({detail: sketch});
 
   function update ({detail: sourceCode}) {
     // Syntactic error handling
     try {
       const AST = acorn.parse(sourceCode);
-      console.log(AST);
       runtime.update(rt => { 
         return Object.assign(rt, {[name]: sourceCode})
       });
@@ -40,10 +41,10 @@
   .group {
     display: flex;
     flex-flow: row wrap;
-    border: dashed red;
   }
 </style>
 <div class="group">
+  <p>id: {name}</p>
   <CodeMirror code={initial} on:change={update}/>
   <Sketch sketch={sketch} />
 </div>

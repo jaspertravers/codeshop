@@ -1,5 +1,5 @@
-// sketch default
-const def = ( p ) => {
+// sketch default is a string; reworking function object flow
+const def = `( p ) => {
   let x = 100;
   let y = 100;
 
@@ -10,7 +10,7 @@ const def = ( p ) => {
   p.draw = () => {
     p.background(127);
   }
-}
+}`
 //  sketch 1
 const s1 = ( p ) => {
   let x = 100;
