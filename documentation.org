@@ -1,10 +1,10 @@
 #+TITLE: codeshop Documentation
 * Development
-
 ** Today
 - [x] codemirror
-- [] storage
+- [x] storage (not saving each keystroke, will fix when done with stopify)
 - [] stopify
+    - [] utilities
 - [] ui
 
 
@@ -14,7 +14,6 @@ file:src/CodeMirror.svelte
 file:src/Sketch.svelte
 
 groups ought to have dynamic names
-
 
 
 ** Else
@@ -29,6 +28,20 @@ groups ought to have dynamic names
 - creat new Pair component for stdlib functions (what goes on RHS?)
 - CodeMirror should only contain codemirror logic; playbutton should be in a different place
 - ~async~, ~promises~, ~generators~, ~try/catch~
+** Implementing Stopify
+https://www.stopify.org
+
+to make a sketch, I just need to pass it:
+#+BEGIN_SRC js
+function sketch (p) {
+  function setup () {}
+  function draw () {}
+}
+
+#+END_SRC
+anything can go anything else. ~p5js~ just expects a top level function with
+contains two other functions, ~setup~ and ~draw~
+
 ** Code Organization
 =CodeMirror.svelte= exports ~code~ and the event dispatcher ~dispatch~ through the line:
 #+begin_src js
@@ -169,6 +182,7 @@ This is a space I want to compete in, and 2D should beat 1D. More and better int
 https://jpolitz.github.io
 https://pldi18.sigplan.org/details/pldi-2018-papers/25/Putting-in-All-the-Stops-Execution-Control-for-JavaScript
 https://arxiv.org/pdf/1802.02974.pdf
+https://www.stopify.org
 ** Related Services
 | Service         | Site                                        |
 |-----------------+---------------------------------------------|
@@ -220,13 +234,18 @@ function wor(fun, mes, com) {
 
 ** Inspiration
 Including above lists
-|                 |                                                                                            |
+
+| People          |                                                                                            |
 |-----------------+--------------------------------------------------------------------------------------------|
 | Bret Victor     | http://worrydream.com/                                                                     |
 | Dan Amelang     | https://github.com/damelang/nile                                                           |
 | lab             | https://www.inkandswitch.com                                                               |
 | Casey Reas      | http://reas.com/compendium_text/                                                           |
 | Daniel Shiffman | https://natureofcode.com                                                                   |
+| Haijun Xia      | http://www.dgp.toronto.edu/~haijunxia/                                                     |
+| Chris Granger   | https://www.chris-granger.com/archive/                                                     |
+| Cameron Burgess | https://cameron-burgess.com                                                                |
+| Cameron Burgess | Stamper CMU                                                                                |
 |                 |                                                                                            |
 |-----------------+--------------------------------------------------------------------------------------------|
 |                 | http://www.tinlizzie.org/ometa/                                                            |
@@ -241,8 +260,8 @@ Including above lists
 | General         |                                                                                            |
 |                 | https://orgmode.org                                                                        |
 |                 | http://spacemacs.org/                                                                      |
-|                 | https://lively-next.org                                                                    |
-|                 | https://en.wikipedia.org/wiki/Smalltalk                                                    |
+| Dan Ingalls     | https://lively-next.org                                                                    |
+| Alan Kay        | https://en.wikipedia.org/wiki/Smalltalk                                                    |
 |                 | https://racket-lang.org                                                                    |
 |                 | https://sonic-pi.net                                                                       |
 |                 | https://rstudio.com/products/rstudio/                                                      |
@@ -256,7 +275,9 @@ Including above lists
 |                 | The Grammar of Graphics                                                                    |
 |                 | http://shapetalkingaboutseeinganddoing.org/Shape.pdf                                       |
 |                 | http://www.thefunctionalart.com                                                            |
+|                 |                                                                                            |
 |-----------------+--------------------------------------------------------------------------------------------|
+|                 |                                                                                            |
 |                 | https://andymatuschak.org                                                                  |
 |                 | http://polytrope.com/                                                                      |
 |                 | https://hamishtodd1.github.io                                                              |
@@ -266,13 +287,28 @@ Including above lists
 |-----------------+--------------------------------------------------------------------------------------------|
 | Papers          |                                                                                            |
 |                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
-|                 |                                                                                            |
+|                 | https://www.stopify.org                                                                    |
 |                 | putting out all the stops                                                                  |
 |                 | Variolite                                                                                  |
 |                 | Juxtapose                                                                                  |
 |                 | Projection Boxes                                                                           |
 |                 | Dynamic Drawing                                                                            |
 |                 |                                                                                            |
-|                 | joe marx siggraph 1997                                                                     |
+|                 | joe marks siggraph 1997                                                                    |
 |                 |                                                                                            |
 |-----------------+--------------------------------------------------------------------------------------------|
+| Extra           | http://overtone.github.io/                                                                 |
+|                 | https://monome.org                                                                         |
+|                 |                                                                                            |
+|-----------------+--------------------------------------------------------------------------------------------|
+| Art             |                                                                                            |
+|                 | http://www.dubberly.com/concept-maps/3x4grid.html                                          |
+|                 |                                                                                            |
+|                 | https://drive.google.com/file/d/0B9h469--G5OwOGVfVmUxZUQ5VzA/view                          |
+|                 | https://reas.com/compendium_text/                                                          |
+|                 | https://reas.com                                                                           |
+|                 | https://runemadsen.com/work/tiny-artists/                                                  |
+|                 |                                                                                            |
+
+* Quotes
+"So, with generative art, are you the author?" - Darin 2020

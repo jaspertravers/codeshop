@@ -158,3 +158,66 @@ exports.sand = sand;
 exports.zip = zip;
 exports.linspace = linspace;
 
+/*
+ * one
+( p ) => {
+  let x = 100;
+  let y = 100;
+
+  p.setup = () => {
+    p.createCanvas(200, 200);
+		p.frameRate(10);
+  }
+  p.draw = () => {
+    p.background(127);
+		p.line(
+			p.random(200),
+			p.random(200),
+			p.random(200),
+			p.random(200))
+	}
+}
+
+ * two
+ ( p ) => {
+  let x = 100;
+  let y = 100;
+
+  p.setup = () => {
+    p.createCanvas(200, 200);
+		p.frameRate(10);
+  }
+  p.draw = () => {
+    p.background(200);
+		p.line(
+			p.random(5),
+			p.random(5),
+			p.random(195,200),
+			p.random(195,200))
+  }
+} 
+
+ * three
+( p ) => {
+  let x = 100;
+  let y = 100;
+  let i = 0;
+
+  p.setup = () => {
+    p.createCanvas(200, 200);
+  }
+  p.draw = () => {
+    i++;
+    if (i > 200) {
+      p.background(200);
+      i = 0;
+    }
+		p.line(
+			p.random(i, i + 5),
+			p.random(5),
+			p.random(195,200),
+			p.random(195,200))
+  }
+}
+ */
+
