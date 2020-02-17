@@ -2,10 +2,14 @@
 * Development
 ** Today
 - [x] codemirror
-- [x] storage (not saving each keystroke, will fix when done with stopify)
+- [x] storage
 - [] stopify
     - [] utilities
 - [] ui
+
+typeof sketch problem
+
+
 
 
 file:src/App.svelte
@@ -175,6 +179,12 @@ I thought I wanted this site to be available in itself. Politz asked why and the
 Observablehq.com has a "Use case" gallery. A section in the gallery is "Software Development" and has "Rapid user interface prototyping"
 
 This is a space I want to compete in, and 2D should beat 1D. More and better interaction hooks than only a slider. Something related to sketch-n-sketch
+* Auditing p5js web editor
+https://editor.p5js.org/
+https://github.com/processing/p5.js-web-editor
+
+
+
 * Notes
 - Observable must thread their function boxes
 ** Prior Art
@@ -207,6 +217,7 @@ https://www.stopify.org
 - generators
 - promises
 - try/catch
+- https://github.com/localForage/localForage
 *** Links and code
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
@@ -226,11 +237,19 @@ function wor(fun, mes, com) {
    var wor = new Worker(URL.createObjectURL(new Blob([
          'self.onmessage = ' + fun.toString()], {
          type: 'application/javascript'
-   })));       
+   })));
    wor.postMessage(mes);
    wor.onmessage = com;
 }
 #+end_src
+
+** JavaScript
+http://es6-features.org/
+https://javascript.info/
+https://codetower.github.io/es6-features/
+https://exploringjs.com/es6/
+https://github.com/lukehoban/es6features
+https://ponyfoo.com/articles/tagged/es6-in-depth
 
 ** Inspiration
 Including above lists

@@ -6,20 +6,16 @@
   import Sketch from './Sketch.svelte';
   import CodeMirror from './CodeMirror.svelte';
 
-
   import { store } from './store.js';
-  store.useLocalStorage(); //gets localstorage session
 
   export let name;
-  export let sketch;
-  
-  let initial = sketch;
+  export let sketch; //this is always a string
+
+  let func;
 
   function update ({detail: sourceCode}) {
     //localstorage updating
-    //console.log("store: ", $store.state[name].sketch);
-
-    //$store.state[name].sketch = sourceCode;
+    $store.state[name].sketch = sourceCode;
 
     // Syntactic error handling
     try {
@@ -31,9 +27,11 @@
       //console.error(e);
       return;
     }
-
-    sketch = new Function (`return ${sourceCode}`)();
+    func = new Function (`return ${sourceCode}`)();
   }
+
+  if (!func) update({detail: sketch}); //builds func on reload and new editor
+
 </script>
 <style>
   .group {
@@ -42,8 +40,6 @@
   }
 </style>
 <div class="group">
-  <p>id: {name}</p>
-  <p>t: {typeof sketch}</p>
-  <CodeMirror code={initial} on:change={update}/>
-  <Sketch sketch={sketch} />
+  <CodeMirror code={sketch} on:change={update}/>
+  <Sketch sketch={func} />
 </div>
