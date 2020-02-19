@@ -1,12 +1,17 @@
 <script>
   import { onMount } from 'svelte';
   import * as acorn from 'acorn';
-  import { runtime } from './runtime';
 
   import Sketch from './Sketch.svelte';
   import CodeMirror from './CodeMirror.svelte';
 
   import { store } from './store.js';
+
+  //stopify imported in public/index.html
+  //import {asyncRun} from '@stopify/stopify'
+  //import Stopify from '@stopify/stopify'
+  //import Stopify from '../public/stopify.bundle.js'
+  //import Stopify from '@stopify/stopify'
 
   export let name;
   export let sketch; //this is always a string
@@ -16,13 +21,9 @@
   function update ({detail: sourceCode}) {
     //localstorage updating
     $store.state[name].sketch = sourceCode;
-
     // Syntactic error handling
     try {
       const AST = acorn.parse(sourceCode);
-      runtime.update(rt => { 
-        return Object.assign(rt, {[name]: sourceCode})
-      });
     } catch (e) {
       //console.error(e);
       return;

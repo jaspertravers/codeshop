@@ -11,7 +11,6 @@
   $: if (isMounted && sketch) {
     frame.innerHTML="";
     try {
-      console.log("made sketch: ", typeof sketch)
       myp5 = new p5(sketch, frame);
     } catch(e) {
       

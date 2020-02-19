@@ -12,8 +12,6 @@
   import Group from './Group.svelte';
   import sketches from './sketches.js';
   import CodeMirror from './CodeMirror.svelte';
-  //import Stopify from '@stopify/stopify'
-
 
   import { store } from './store.js';
   store.useLocalStorage(); //gets localstorage session

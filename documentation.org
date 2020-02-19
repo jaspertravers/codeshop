@@ -7,17 +7,18 @@
     - [] utilities
 - [] ui
 
-typeof sketch problem
 
+how to make fields of passed object available without prefix?
+such that setup and draw could be accessible without ~p~ prefix?
 
+I have a localstorage error wrt copy editor because of indexing.
 
-
-file:src/App.svelte
-file:src/Group.svelte
-file:src/CodeMirror.svelte
-file:src/Sketch.svelte
-
-groups ought to have dynamic names
+#+BEGIN_SRC js
+(p) => {
+    p.setup () {}
+    p.draw () {}
+}
+#+END_SRC
 
 
 ** Else
@@ -250,6 +251,8 @@ https://codetower.github.io/es6-features/
 https://exploringjs.com/es6/
 https://github.com/lukehoban/es6features
 https://ponyfoo.com/articles/tagged/es6-in-depth
+https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/
+http://perfectionkills.com/global-eval-what-are-the-options/
 
 ** Inspiration
 Including above lists

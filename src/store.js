@@ -1,3 +1,4 @@
+//from https://higsch.me/2019/06/22/2019-06-21-svelte-local-storage/
 import {writable} from 'svelte/store';
 
 //export const store = writable( {} ); //without localStorage
