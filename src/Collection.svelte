@@ -4,6 +4,8 @@
 
   import Sketch from './Sketch.svelte';
   import CodeMirror from './CodeMirror.svelte';
+  import InstanceMenu from './InstanceMenu.svelte';
+  import SideMenu from './SideMenu.svelte';
 
   import { store } from './store.js';
   //import Stopify from '@stopify/stopify'
@@ -36,9 +38,15 @@
     flex-flow: row wrap;
     border: 1px dashed #282828;
   }
+  .collection-horizontal {
+  }
 </style>
-<div class="collection">
-  <CodeMirror on:change={update} index={index}/>
-  <Sketch sketch={func} />
-</div>
 
+<div class="collection-horizontal">
+  <SideMenu class ="sidemenu" index={index}/>
+  <div class="collection">
+    <CodeMirror on:change={update} index={index}/>
+    <Sketch sketch={func} />
+  </div>
+</div>
+<InstanceMenu index={index}/>

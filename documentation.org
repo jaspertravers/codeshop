@@ -7,14 +7,14 @@
   - [] utilities
 - [] ui
 
-| UI                     |   |
-|------------------------+---|
-| Collection IDs         |   |
-| Local Play/Puase       |   |
-| Global Play/Pause      |   |
-| Minimize/Maximize      |   |
-| Collection Hierarchy ? |   |
-|                        |   |
+| UI                     |   |                       |
+|------------------------+---+-----------------------|
+| Collection IDs         | x | not fully implemented |
+| Local Play/Puase       |   |                       |
+| Global Play/Pause      |   |                       |
+| Minimize/Maximize      |   |                       |
+| Collection Hierarchy ? |   |                       |
+|                        |   |                       |
 
 *** Collection IDs
 $store = {collections: []}
@@ -25,6 +25,14 @@ Workspace.svelte
 
 
 (index) might work
+
+mine:example problem (without problem):
+https://svelte.dev/repl/845cbd37bbea4830b16bd7e64c1ffc36?version=3.19.1
+helper:uuid fix:
+https://svelte.dev/repl/55a6d52c8d1b4819b504497e446e3993?version=3.19.1
+
+
+
 
 
 ** Current Notes

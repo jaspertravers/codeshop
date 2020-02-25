@@ -19,12 +19,6 @@
 
   onMount(() => {
     isMounted = true;
-      if (sketch) {
-        try {
-          myp5 = new p5(sketch, frame);
-        }
-        catch (e) {}
-      }
   })
 </script>
 

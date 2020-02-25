@@ -11,13 +11,14 @@
 
   function handleNewButton () {
     let str = new String (p5def)
-    $store.collections.splice (index + 1, 0, {string: str, id: uuid()});
+    $store.collections.splice (index + 1, 0, {string: str, id: uuid(), play: false});
     $store.collections = $store.collections;
   }
 
   function handleCopyButton () {
     let strCopy = $store.collections[index].string;
-    $store.collections.splice (index + 1, 0, {string: strCopy, id: uuid()});
+    $store.collections.splice (index + 1, 0, {string: strCopy, id: uuid(),
+    play: false});
     $store.collections = $store.collections;
   }
 

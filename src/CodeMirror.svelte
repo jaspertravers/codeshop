@@ -53,7 +53,6 @@
 </style>
 
 <div class="codemirror-container" bind:this={frame}>
-  <p> index: {index}</p>
   <textarea
     bind:this={refs.editor}
     value={$store.collections[index].string}
