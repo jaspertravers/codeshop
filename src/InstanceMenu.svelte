@@ -2,19 +2,22 @@
   import { onMount } from 'svelte';
   import { p5def } from './sketches.js';
 
+  import { v4 as uuid } from 'uuid';
+
   import { store } from './store.js';
   store.useLocalStorage(); //gets localstorage session
 
   export let index;
 
   function handleNewButton () {
-    $store.collections.splice (index + 1, 0, {string: p5def});
+    let str = new String (p5def)
+    $store.collections.splice (index + 1, 0, {string: str, id: uuid()});
     $store.collections = $store.collections;
   }
 
   function handleCopyButton () {
     let strCopy = $store.collections[index].string;
-    $store.collections.splice (index + 1, 0, {string: strCopy});
+    $store.collections.splice (index + 1, 0, {string: strCopy, id: uuid()});
     $store.collections = $store.collections;
   }
 

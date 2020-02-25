@@ -6,21 +6,16 @@
   import CodeMirror from './CodeMirror.svelte';
 
   import { store } from './store.js';
-
   //import Stopify from '@stopify/stopify'
 
-  //export let string;
-  export let collection; //collection object
   export let index;
-
-  let string = collection.string; //does this line need to be reactive? Is it already?
 
   let func;
 
-  function update ({detail: sourceCode}) {
+  function update () {
     //localstorage updating
-    $store.collections[index].string = sourceCode;
-
+    let sourceCode = $store.collections[index].string; //lets only do this in one place
+      
     //  Syntactic error handling
     try {
       const AST = acorn.parse(sourceCode);
@@ -31,7 +26,7 @@
     func = new Function (`return ${sourceCode}`)();
   }
 
-  update({detail: string}); //builds func on reload and new editor
+  update(); //builds func on reload and new editor
 
 
 </script>
@@ -43,6 +38,7 @@
   }
 </style>
 <div class="collection">
-  <CodeMirror code={string} on:change={update}/>
+  <CodeMirror on:change={update} index={index}/>
   <Sketch sketch={func} />
 </div>
+

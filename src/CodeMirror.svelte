@@ -2,11 +2,15 @@
   import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
 
+  import { store } from './store.js';
+
   import CodeMirror from './codemirror.js'; //this works
 
   let editor;
   let frame;
-  export let code; //code comes into this module
+
+  export let index;
+
   const refs = {}
 
   const dispatch = createEventDispatcher();
@@ -23,8 +27,8 @@
     };
     editor = CodeMirror.fromTextArea(refs.editor, cm_opts);
     editor.on('change', instance => {
-      code = instance.getValue();
-      dispatch('change', code); // or { value }
+      $store.collections[index].string = instance.getValue();
+      dispatch('change');
      });
   }
 
@@ -35,7 +39,6 @@
   //not sure what for: https://github.com/sveltejs/svelte-repl/blob/master/src/CodeMirror.svelte
   $: if (editor) { 
     editor.refresh();
-    //console.log("hit editor.refresh() $: ");
   }
 
 
@@ -50,8 +53,9 @@
 </style>
 
 <div class="codemirror-container" bind:this={frame}>
+  <p> index: {index}</p>
   <textarea
     bind:this={refs.editor}
-    bind:value={code}
+    value={$store.collections[index].string}
   ></textarea>
 </div>
