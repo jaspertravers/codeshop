@@ -22,4 +22,4 @@ const createWritableStore = (key, startValue) => {
     };
 }
 
-export const store = createWritableStore('workspace', {state: []})
+export const store = createWritableStore('workspace', {collections: []})

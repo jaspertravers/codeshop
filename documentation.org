@@ -4,15 +4,46 @@
 - [x] codemirror
 - [x] storage
 - [] stopify
-    - [] utilities
+  - [] utilities
 - [] ui
 
+| UI                     |   |
+|------------------------+---|
+| Collection IDs         |   |
+| Local Play/Puase       |   |
+| Global Play/Pause      |   |
+| Minimize/Maximize      |   |
+| Collection Hierarchy ? |   |
+|                        |   |
+
+*** Collection IDs
+$store = {collections: []}
+collections will be an array of {string: ~string~}
+
+store.js
+Workspace.svelte
+
+
+(index) might work
+
+
+** Current Notes
+
+| Colors  | rgb           | detail   |
+|---------+---------------+----------|
+| #fffbf4 | (255,251,244) | light bg |
+| #fcfaea | (252,250,234) | light bg |
+| #282828 | (28,28,28)    | stroke   |
+
+localForge seems nice, stringifying objects isn't great
 
 how to make fields of passed object available without prefix?
 such that setup and draw could be accessible without ~p~ prefix?
 
 I have a localstorage error wrt copy editor because of indexing.
 
+@stopify/stopify
+issue has to be with circular deps babel-types rollup (builtins)
 #+BEGIN_SRC js
 (p) => {
     p.setup () {}
@@ -21,7 +52,7 @@ I have a localstorage error wrt copy editor because of indexing.
 #+END_SRC
 
 
-** Else
+** Later
 
 - Internal representation and passing of code
 - CM highlighting, scrolling?
@@ -33,6 +64,7 @@ I have a localstorage error wrt copy editor because of indexing.
 - creat new Pair component for stdlib functions (what goes on RHS?)
 - CodeMirror should only contain codemirror logic; playbutton should be in a different place
 - ~async~, ~promises~, ~generators~, ~try/catch~
+
 ** Implementing Stopify
 https://www.stopify.org
 
@@ -257,80 +289,81 @@ http://perfectionkills.com/global-eval-what-are-the-options/
 ** Inspiration
 Including above lists
 
-| People          |                                                                                            |
-|-----------------+--------------------------------------------------------------------------------------------|
-| Bret Victor     | http://worrydream.com/                                                                     |
-| Dan Amelang     | https://github.com/damelang/nile                                                           |
-| lab             | https://www.inkandswitch.com                                                               |
-| Casey Reas      | http://reas.com/compendium_text/                                                           |
-| Daniel Shiffman | https://natureofcode.com                                                                   |
-| Haijun Xia      | http://www.dgp.toronto.edu/~haijunxia/                                                     |
-| Chris Granger   | https://www.chris-granger.com/archive/                                                     |
-| Cameron Burgess | https://cameron-burgess.com                                                                |
-| Cameron Burgess | Stamper CMU                                                                                |
-|                 |                                                                                            |
-|-----------------+--------------------------------------------------------------------------------------------|
-|                 | http://www.tinlizzie.org/ometa/                                                            |
-|                 | https://webstrates.net                                                                     |
-|                 | https://www.desmos.com/calculator                                                          |
-|                 | https://hazel.org                                                                          |
-|                 | http://shaunlebron.github.io/parinfer/                                                     |
-| Amit Patel      | https://www.redblobgames.com                                                               |
-| Nicky Case      | https://explorabl.es                                                                       |
-|                 | https://jackschaedler.github.io/                                                           |
-|-----------------+--------------------------------------------------------------------------------------------|
-| General         |                                                                                            |
-|                 | https://orgmode.org                                                                        |
-|                 | http://spacemacs.org/                                                                      |
-| Dan Ingalls     | https://lively-next.org                                                                    |
-| Alan Kay        | https://en.wikipedia.org/wiki/Smalltalk                                                    |
-|                 | https://racket-lang.org                                                                    |
-|                 | https://sonic-pi.net                                                                       |
-|                 | https://rstudio.com/products/rstudio/                                                      |
-|                 | https://github.com/jonathontoon/manifest                                                   |
-|                 | https://www.desmos.com/calculator                                                          |
-|                 |                                                                                            |
-|-----------------+--------------------------------------------------------------------------------------------|
-| Books           |                                                                                            |
-|                 | Edward Tufte                                                                               |
-|                 | Form Function & Design by Paul Jacques Grillo                                              |
-|                 | The Grammar of Graphics                                                                    |
-|                 | http://shapetalkingaboutseeinganddoing.org/Shape.pdf                                       |
-|                 | http://www.thefunctionalart.com                                                            |
-|                 |                                                                                            |
-|-----------------+--------------------------------------------------------------------------------------------|
-|                 |                                                                                            |
-|                 | https://andymatuschak.org                                                                  |
-|                 | http://polytrope.com/                                                                      |
-|                 | https://hamishtodd1.github.io                                                              |
-|                 | http://joshuahhh.com/                                                                      |
-|                 | https://rsnous.com                                                                         |
-|                 | http://www.jezzamon.com                                                                    |
-|-----------------+--------------------------------------------------------------------------------------------|
-| Papers          |                                                                                            |
-|                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf |
-|                 | https://www.stopify.org                                                                    |
-|                 | putting out all the stops                                                                  |
-|                 | Variolite                                                                                  |
-|                 | Juxtapose                                                                                  |
-|                 | Projection Boxes                                                                           |
-|                 | Dynamic Drawing                                                                            |
-|                 |                                                                                            |
-|                 | joe marks siggraph 1997                                                                    |
-|                 |                                                                                            |
-|-----------------+--------------------------------------------------------------------------------------------|
-| Extra           | http://overtone.github.io/                                                                 |
-|                 | https://monome.org                                                                         |
-|                 |                                                                                            |
-|-----------------+--------------------------------------------------------------------------------------------|
-| Art             |                                                                                            |
-|                 | http://www.dubberly.com/concept-maps/3x4grid.html                                          |
-|                 |                                                                                            |
-|                 | https://drive.google.com/file/d/0B9h469--G5OwOGVfVmUxZUQ5VzA/view                          |
-|                 | https://reas.com/compendium_text/                                                          |
-|                 | https://reas.com                                                                           |
-|                 | https://runemadsen.com/work/tiny-artists/                                                  |
-|                 |                                                                                            |
+| People          |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+| Bret Victor     | http://worrydream.com/                                                                                                               |
+| Dan Amelang     | https://github.com/damelang/nile                                                                                                     |
+| lab             | https://www.inkandswitch.com                                                                                                         |
+| Casey Reas      | http://reas.com/compendium_text/                                                                                                     |
+| Daniel Shiffman | https://natureofcode.com                                                                                                             |
+| Haijun Xia      | http://www.dgp.toronto.edu/~haijunxia/                                                                                               |
+| Chris Granger   | https://www.chris-granger.com/archive/                                                                                               |
+|                 |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+|                 | http://www.tinlizzie.org/ometa/                                                                                                      |
+|                 | https://webstrates.net                                                                                                               |
+|                 | https://www.desmos.com/calculator                                                                                                    |
+|                 | https://hazel.org                                                                                                                    |
+|                 | http://shaunlebron.github.io/parinfer/                                                                                               |
+| Amit Patel      | https://www.redblobgames.com                                                                                                         |
+| Nicky Case      | https://explorabl.es                                                                                                                 |
+|                 | https://jackschaedler.github.io/                                                                                                     |
+|                 |                                                                                                                                      |
+| Cameron Burgess | https://cameron-burgess.com                                                                                                          |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+| General         |                                                                                                                                      |
+|                 | https://orgmode.org                                                                                                                  |
+|                 | http://spacemacs.org/                                                                                                                |
+| Dan Ingalls     | https://lively-next.org                                                                                                              |
+| Dan Ingalls     | https://github.com/LivelyKernel                                                                                                      |
+| Alan Kay        | https://en.wikipedia.org/wiki/Smalltalk                                                                                              |
+|                 | https://racket-lang.org                                                                                                              |
+|                 | https://sonic-pi.net                                                                                                                 |
+|                 | https://rstudio.com/products/rstudio/                                                                                                |
+|                 | https://github.com/jonathontoon/manifest                                                                                             |
+|                 | https://www.desmos.com/calculator                                                                                                    |
+| Stamper         | https://paper.dropbox.com/doc/Stamper-An-Artboard-Oriented-Programming-Environment--Au6vNXwIZXmZLgzwSjJI8E22Ag-QXtfMXshBFBNCu6iCtx2J |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+| Books           |                                                                                                                                      |
+|                 | Edward Tufte                                                                                                                         |
+|                 | Form Function & Design by Paul Jacques Grillo                                                                                        |
+|                 | The Grammar of Graphics                                                                                                              |
+|                 | http://shapetalkingaboutseeinganddoing.org/Shape.pdf                                                                                 |
+|                 | http://www.thefunctionalart.com                                                                                                      |
+|                 |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+|                 |                                                                                                                                      |
+|                 | https://andymatuschak.org                                                                                                            |
+|                 | http://polytrope.com/                                                                                                                |
+|                 | https://hamishtodd1.github.io                                                                                                        |
+|                 | http://joshuahhh.com/                                                                                                                |
+|                 | https://rsnous.com                                                                                                                   |
+|                 | http://www.jezzamon.com                                                                                                              |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+| Papers          |                                                                                                                                      |
+|                 | https://marybethkery.com/projects/Verdant/variolite-supporting-exploratory-programming.pdf                                           |
+|                 | https://www.stopify.org                                                                                                              |
+|                 | putting out all the stops                                                                                                            |
+|                 | Variolite                                                                                                                            |
+|                 | Juxtapose                                                                                                                            |
+|                 | Projection Boxes                                                                                                                     |
+|                 | Dynamic Drawing                                                                                                                      |
+|                 |                                                                                                                                      |
+|                 | joe marks siggraph 1997                                                                                                              |
+|                 |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+| Extra           | http://overtone.github.io/                                                                                                           |
+|                 | https://monome.org                                                                                                                   |
+|                 |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+| Art             |                                                                                                                                      |
+|                 | http://www.dubberly.com/concept-maps/3x4grid.html                                                                                    |
+|                 |                                                                                                                                      |
+|                 | https://drive.google.com/file/d/0B9h469--G5OwOGVfVmUxZUQ5VzA/view                                                                    |
+|                 | https://reas.com/compendium_text/                                                                                                    |
+|                 | https://reas.com                                                                                                                     |
+|                 | https://runemadsen.com/work/tiny-artists/                                                                                            |
+|                 |                                                                                                                                      |
 
 * Quotes
 "So, with generative art, are you the author?" - Darin 2020
