@@ -1,10 +1,10 @@
 #+TITLE: codeshop Documentation
 * Development
-** Today
+** Task List
 - [x] codemirror
 - [x] storage
 - [] stopify
-  - [] utilities
+  - [] utilities(includes/exports/function blocks)
 - [] ui
 
 | UI                     |   |                       |
@@ -15,6 +15,14 @@
 | Minimize/Maximize      |   |                       |
 | Collection Hierarchy ? |   |                       |
 |                        |   |                       |
+
+
+** Scratch (Stack)
+*** CSS
+Layout
+
+grid is 2D
+flexbox is 1D
 
 *** Collection IDs
 $store = {collections: []}
@@ -30,12 +38,7 @@ mine:example problem (without problem):
 https://svelte.dev/repl/845cbd37bbea4830b16bd7e64c1ffc36?version=3.19.1
 helper:uuid fix:
 https://svelte.dev/repl/55a6d52c8d1b4819b504497e446e3993?version=3.19.1
-
-
-
-
-
-** Current Notes
+*** Notes
 
 | Colors  | rgb           | detail   |
 |---------+---------------+----------|
@@ -58,67 +61,6 @@ issue has to be with circular deps babel-types rollup (builtins)
     p.draw () {}
 }
 #+END_SRC
-
-
-** Later
-
-- Internal representation and passing of code
-- CM highlighting, scrolling?
-- CM saving
-- code transformation/formatting and passing between CM -> S
-  - Maybe I should be using =json= or =edn=
-- How does repl.it solve the "halting problem"?
-- Drag and Drop wm
-- creat new Pair component for stdlib functions (what goes on RHS?)
-- CodeMirror should only contain codemirror logic; playbutton should be in a different place
-- ~async~, ~promises~, ~generators~, ~try/catch~
-
-** Implementing Stopify
-https://www.stopify.org
-
-to make a sketch, I just need to pass it:
-#+BEGIN_SRC js
-function sketch (p) {
-  function setup () {}
-  function draw () {}
-}
-
-#+END_SRC
-anything can go anything else. ~p5js~ just expects a top level function with
-contains two other functions, ~setup~ and ~draw~
-
-** Code Organization
-=CodeMirror.svelte= exports ~code~ and the event dispatcher ~dispatch~ through the line:
-#+begin_src js
-dispatch('change', code);
-#+end_src
-this dispatch call is listened to by ~Group.svelte~ where the instantiation of the =CodeMirror= component by:
-#+begin_src html
-<CodeMirror code={initial} on:change={update}/>
-#+end_src
-connects the local function ~update~ to the dispatch key ~'change'~ by the syntax ~on:change{update}~
-The local function ~update~ passes an error-checked function object to be rendered by p5js in =Sketch.svelte=
-#+begin_src js
-function update ({detail: sourceCode}) {
-#+end_src
-
-#+begin_src sh :exports both
-cd src
-~/scripts/ff update
-#+end_src
-
-#+RESULTS:
-: ./Group.svelte
-
-** Feature Work
-Functions are currently being added to a library, accessible within sketch components as ~lib.~ They could also be simply appended to the same function instantiation as structured below
-#+begin_src js
-function setup () {...}
-function draw () {...}
-...
-function linspace () {...}
-#+end_src
-adding functions at =...= would circumvent the prefix ~lib.~ There are certainly advantages to both.
 
 * Ideas and Explanations
 ** Functions in javascript
@@ -207,7 +149,7 @@ having
 #+begin_src js
 (p, [...sliders]) => {...}
 #+end_src
-* Conversations
+** Conversations
 Joe Politz asked something about how this would compare to jsFiddle. My answer was that I could imagine this service as a workspace of fiddles. The fundamental idea of this work is to give a ~*-*~ relationship between code and outputs. I'll have to work on this analogy.
 
 I want a high level of granularity in selecting and writing code. (Code is not divided by file, but by function or groups)
@@ -220,11 +162,15 @@ I thought I wanted this site to be available in itself. Politz asked why and the
 Observablehq.com has a "Use case" gallery. A section in the gallery is "Software Development" and has "Rapid user interface prototyping"
 
 This is a space I want to compete in, and 2D should beat 1D. More and better interaction hooks than only a slider. Something related to sketch-n-sketch
-* Auditing p5js web editor
+** Auditing p5js web editor
 https://editor.p5js.org/
 https://github.com/processing/p5.js-web-editor
 
-
+This kindof blew up as a task. I ran through every issue, took a few hours. I
+ought to write up the important parts, but my biggest take away is that I can't
+really copy their work. They use a standard hack to fix while(1) and otherwise
+have a large stack and specifics that have to do with every other choice they've
+made. It's a complex setup.
 
 * Notes
 - Observable must thread their function boxes
@@ -371,6 +317,15 @@ Including above lists
 |                 | https://reas.com/compendium_text/                                                                                                    |
 |                 | https://reas.com                                                                                                                     |
 |                 | https://runemadsen.com/work/tiny-artists/                                                                                            |
+|                 |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+|                 | https://overtone.github.io                                                                                                           |
+|                 | https://vvvv.org                                                                                                                     |
+|                 | https://sonic-pi.net                                                                                                                 |
+|                 | https://vcvrack.com                                                                                                                  |
+|                 | https://jackaudio.org/news/                                                                                                          |
+|                 | https://pipewire.org                                                                                                                                     |
+|                 |                                                                                                                                      |
 |                 |                                                                                                                                      |
 
 * Quotes

@@ -33,20 +33,43 @@
 
 </script>
 <style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+    border: 1px solid #000000;
+  }
   .collection {
+    grid-column: 2 / 4;
+    grid-row: 1;
     display: flex;
     flex-flow: row wrap;
     border: 1px dashed #282828;
   }
-  .collection-horizontal {
+  .side-menu {
+      grid-column: 1;
+      grid-row: 1;
   }
+  .three {
+      grid-column: 1;
+      grid-row: 2;
+  }
+  .instance-menu {
+      grid-column: 1/3;
+      grid-row: 2;
+  }
+
 </style>
 
-<div class="collection-horizontal">
-  <SideMenu class ="sidemenu" index={index}/>
+<div class="wrapper">
+  <div class="side-menu">
+    <SideMenu index={index}/>
+  </div>
   <div class="collection">
     <CodeMirror on:change={update} index={index}/>
     <Sketch sketch={func} />
   </div>
+  <div class="instance-menu">
+    <InstanceMenu index={index}/>
+  </div>
 </div>
-<InstanceMenu index={index}/>

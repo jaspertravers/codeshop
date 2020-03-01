@@ -21,11 +21,10 @@
 
 <style>
   .instance-menu {
-    display: flex;
   }
 </style>
 
 <div class="instance-menu">
-  <button id="local-play" on:click={handlePlay}> ▶ </button>
-  <button id="local-pause" on:click={handlePause}> ⏸ </button>
+  <button class="local-play" on:click={handlePlay}> ▶ </button>
+  <button class="local-pause" on:click={handlePause}> ⏸ </button>
 </div>

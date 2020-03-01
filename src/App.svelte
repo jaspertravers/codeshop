@@ -8,8 +8,6 @@
 <div id="app">
   <div id="root">
     <h1> codeshop </h1>
-    <div id="runtime">
-    </div>
     <div id="workspace">
       <Workspace name ="w0"/>
     </div>

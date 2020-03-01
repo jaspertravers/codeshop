@@ -13,7 +13,6 @@
 
   // if no localstorage, initiate with default
   if (!$store.collections[0]) {
-      //store.set({state: [newState]})
       store.set({collections: [{string: p5def, id: uuid(), play: false}]});
   }
 

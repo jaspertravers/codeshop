@@ -32,7 +32,7 @@
 </style>
 
 <div class="instance-menu">
-  <button id="new" on:click={handleNewButton}> New Editor </button>
-  <button id="copy" on:click={handleCopyButton}> Copy Editor </button>
-  <button id="delete" on:click={handleDeleteButton}> Delete Editor </button>
+  <button class="new" on:click={handleNewButton}> New Editor </button>
+  <button class="copy" on:click={handleCopyButton}> Copy Editor </button>
+  <button class="delete" on:click={handleDeleteButton}> Delete Editor </button>
 </div>
