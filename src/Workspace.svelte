@@ -34,9 +34,11 @@
     <h3> Global Controls : </h3>
     <GlobalMenu/>
   </div>
+  <hr/>
   {#if $store.collections}
     {#each $store.collections as collection, index (collection.id)}
       <Collection index={index} />
+      <hr/>
     {/each}
   {/if}
 </div>

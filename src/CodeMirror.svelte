@@ -57,4 +57,9 @@
     bind:this={refs.editor}
     value={$store.collections[index].string}
   ></textarea>
+  <style>
+    .CodeMirror {
+        height: auto;
+    }
+  </style>
 </div>
