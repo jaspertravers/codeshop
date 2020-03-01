@@ -10,8 +10,9 @@
 | UI                     |   |                       |
 |------------------------+---+-----------------------|
 | Collection IDs         | x | not fully implemented |
-| Local Play/Puase       |   |                       |
-| Global Play/Pause      |   |                       |
+| Local Play/Puase       | x | styling is 0/10       |
+| Global Play/Pause      | x | styling is 0/11       |
+| State displaying P/P   |   |                       |
 | Minimize/Maximize      |   |                       |
 | Collection Hierarchy ? |   |                       |
 |                        |   |                       |

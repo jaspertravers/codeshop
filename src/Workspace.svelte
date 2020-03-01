@@ -5,6 +5,8 @@
   import InstanceMenu from './InstanceMenu.svelte';
   import { p5def } from './sketches.js'
 
+  import GlobalMenu from './GlobalMenu.svelte'
+
   import { v4 as uuid } from 'uuid';
 
 
@@ -19,9 +21,19 @@
 </script>
 
 <style>
+  .workspace {
+  }
+  .globalmenu {
+      position: relative;
+      left: 8%;
+  }
 </style>
 
 <div class="workspace">
+  <div class="globalmenu">
+    <h3> Global Controls : </h3>
+    <GlobalMenu/>
+  </div>
   {#if $store.collections}
     {#each $store.collections as collection, index (collection.id)}
       <Collection index={index} />

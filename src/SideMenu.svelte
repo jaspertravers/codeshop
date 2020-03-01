@@ -11,11 +11,9 @@
 
   function handlePlay () {
     $store.collections[index].play = true;
-    //$store.collections = $store.collections;
   }
   function handlePause () {
     $store.collections[index].play = false;
-    //$store.collections = $store.collections;
   }
 </script>
 
