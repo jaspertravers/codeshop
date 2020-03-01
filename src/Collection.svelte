@@ -15,7 +15,7 @@
   let func;
 
   function update () {
-    //localstorage updating
+    //grab localstorage
     let sourceCode = $store.collections[index].string; //lets only do this in one place
       
     //  Syntactic error handling
@@ -30,14 +30,13 @@
 
   update(); //builds func on reload and new editor
 
-
 </script>
 <style>
   .wrapper {
     display: grid;
+    grid-gap: 2px;
     grid-template-columns: auto repeat(2, 1fr);
     grid-template-rows: 1fr auto;
-    border: 1px solid #000000;
   }
   .collection {
     grid-column: 2 / 4;
@@ -67,7 +66,7 @@
   </div>
   <div class="collection">
     <CodeMirror on:change={update} index={index}/>
-    <Sketch sketch={func} />
+    <Sketch sketch={func} index={index}/>
   </div>
   <div class="instance-menu">
     <InstanceMenu index={index}/>

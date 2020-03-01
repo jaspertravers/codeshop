@@ -21,10 +21,24 @@
 
 <style>
   .instance-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button.play {
+    /*
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0px 10px 20px;
+    border-color: transparent transparent transparent #282828;
+    */
   }
 </style>
 
 <div class="instance-menu">
-  <button class="local-play" on:click={handlePlay}> ▶ </button>
-  <button class="local-pause" on:click={handlePause}> ⏸ </button>
+  <button class="button play" on:click={handlePlay}> Play </button>
+  <button class="button pause" on:click={handlePause}> Pause </button>
 </div>

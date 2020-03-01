@@ -18,6 +18,9 @@
 
 
 ** Scratch (Stack)
+*** Play/Pause
+I want all collection.play fields to be false on startup
+
 *** CSS
 Layout
 
