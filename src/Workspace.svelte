@@ -18,6 +18,11 @@
       store.set({collections: [{string: p5def, id: uuid(), play: false}]});
   }
 
+  //pause all collections on startup
+  onMount(() => {
+    $store.collections.forEach (e => e.play = false);
+  });
+
 </script>
 
 <style>

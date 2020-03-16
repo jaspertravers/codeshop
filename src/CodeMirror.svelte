@@ -47,7 +47,7 @@
 <style>
   .codemirror-container {
       position: relative;
-      width: 50%;
+      width: 35%;
       line-height: 1.5;
   }
 </style>
