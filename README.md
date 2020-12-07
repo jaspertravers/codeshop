@@ -1,4 +1,8 @@
 # codeshop
+
+Codeshop is a custom computational notebook like [Jupyter](https://jupyter.org/) or [Observable](https://observablehq.com/) for computational art using [p5js](https://p5js.org/). I recreate the basic computational format of a column of cells, and add in a canvas in line with each cell and extend the "New Cell" options to include cloning the previous cell to facilitate exploration of parallel ideas. Codeshop also improves computational notebook runtime capabilities with [Stopify](https://www.stopify.org/), an execution control library. The prototype was the basis for a CHI-style pilot study about parallel design affordances in software.
+
+
 [Documentation](documentation.org)
 
 A workspace for programming based art.

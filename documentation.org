@@ -350,6 +350,13 @@ Including above lists
 |                 | https://jackaudio.org/news/                                                                                                          |
 |                 | https://pipewire.org                                                                                                                 |
 |                 |                                                                                                                                      |
+|-----------------+--------------------------------------------------------------------------------------------------------------------------------------|
+|                 | https://en.wikipedia.org/wiki/George_Furnas                                                                                          |
+|                 | https://deepblue.lib.umich.edu/handle/2027.42/83491                                                                                  |
+|                 | https://deepblue.lib.umich.edu/handle/2027.42/65116                                                                                  |
+|                 | https://en.wikipedia.org/wiki/Diagrammatic_reasoning                                                                                 |
+|                 |                                                                                                                                      |
+|                 | http://worrydream.com/refs/Hollan%20-%20Pad++.pdf                                                                                    |
 |                 |                                                                                                                                      |
 
 * Quotes
