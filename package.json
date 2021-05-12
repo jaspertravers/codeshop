@@ -20,7 +20,7 @@
   "dependencies": {
     "@stopify/stopify": "^0.7.2",
     "acorn": "^7.1.0",
-    "codemirror": "^5.51.0",
+    "codemirror": "^5.58.2",
     "p5": "^0.9.0",
     "rollup-plugin-postcss": "^2.0.6",
     "sirv-cli": "^0.4.5",
